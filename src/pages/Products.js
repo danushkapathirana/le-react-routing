@@ -1,8 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 const Products = () => {
     return(
-        <h1>Products page</h1>
+        <Fragment>
+            <h1>Products page</h1>
+            <p>Go to the <Link to="/">home page</Link></p>
+        </Fragment>
     )
 }
 
