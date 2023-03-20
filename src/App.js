@@ -3,11 +3,18 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import Root from "./pages/Root";
 
 //defines routes
 const routes = createBrowserRouter([
-  {path: '/', element: <Home />},
-  {path: '/products', element: <Products />}
+  {
+    path: '/',
+    element: <Root />,
+    children: [
+      {path: '/', element: <Home />},
+      {path: '/products', element: <Products />}
+    ]
+  }
 ])
 
 const App = () => {
