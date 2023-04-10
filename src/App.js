@@ -15,6 +15,7 @@ const routes = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {path: '', element: <Home />},
+      // {index: true, element: <Home />} alternative way to '' path (index routes -> element load when parent path is active)
       {path: 'products', element: <Products />},
       {path: 'products/:id', element: <ProductDetails />}
     ]
