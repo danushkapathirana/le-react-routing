@@ -1,9 +1,35 @@
 import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Root from "./pages/Root";
+import Error from "./pages/Error";
+import ProductDetails from "./pages/ProductDetails";
+
+//defines routes
+const routes = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root />,
+    errorElement: <Error />,
+    children: [
+      {path: '', element: <Home />},
+      // {index: true, element: <Home />} alternative way to '' path (index routes -> element load when parent path is active)
+      {path: 'products', element: <Products />},
+      {path: 'products/:id', element: <ProductDetails />}
+    ]
+  }
+])
 
 const App = () => {
   return(
-    <h1>React Routing</h1>
+    <RouterProvider router={routes} />
   )
 }
 
 export default App
+
+// Libraries
+
+// react-router-dom
